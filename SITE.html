@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        #question {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #options {
+            display: flex;
+        }
+
+        .option-btn {
+            padding: 12px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        #yes-btn {
+            background-color: #2ecc71; /* Cor verde para o botão "Sim" */
+            color: #fff;
+        }
+
+        #no-btn {
+            background-color: #e74c3c; /* Cor vermelha para o botão "Não" */
+            color: #fff;
+        }
+
+        .option-btn:hover {
+            opacity: 0.8;
+        }
+
+        #no-btn:hover {
+            opacity: 0;
+            transition: opacity 0s;
+        }
+
+        #confirmation-message {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        #heart {
+            font-size: 36px;
+            color: #e74c3c; /* Cor vermelha para o coração */
+            animation: heartbeat 1s infinite; /* Adicionando a animação pulsante */
+            margin-top: 20px;
+            display: none; /* Inicialmente oculto */
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+    <title>Do You Love Me?</title>
+</head>
+<body>
+    <div id="question">Você me ama?</div>
+    <div id="options">
+        <button id="yes-btn" class="option-btn" onclick="showConfirmation()">Sim</button>
+        <button id="no-btn" class="option-btn" onmouseover="hideNoButton()" onmouseout="showNoButton()">Não</button>
+    </div>
+    <div id="confirmation-message"></div>
+    <div id="heart">❤️</div>
+
+    <script>
+        function showConfirmation() {
+            document.getElementById('confirmation-message').innerText = 'EU TAMBÉM TE AMO MUITÃO!';
+            document.getElementById('heart').style.display = 'block'; // Exibir o coração após clicar em "Sim"
+        }
+
+        function hideNoButton() {
+            document.getElementById('no-btn').style.opacity = '0';
+        }
+
+        function showNoButton() {
+            document.getElementById('no-btn').style.opacity = '1';
+        }
+    </script>
+</body>
+</html>
